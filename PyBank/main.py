@@ -45,8 +45,22 @@ with open(filename, 'r') as file:
 # Compute average difference; avoid division by zero
 average_difference = sum_difference / (number_lines - 1) if number_lines > 1 else 0
 
+
+# Print the ANALYSIS RESULTS to the TERMINAL
+print("Financial Analysis")
+print("----------------------------")
 print(f"Total Months: {number_lines}")
 print(f"Total Profit: {total_profit}")
 print(f"Average Change: {average_difference:.2f}")
 print(f"Max Increase in Profits: {max_difference} on {max_date}")
 print(f"Max Decrease in Profits: {min_difference} on {min_date}")
+
+# Write the results to a text file
+with open('financial_analysis.txt', 'w') as file:
+    file.write("Financial Analysis\n")
+    file.write("----------------------------\n")
+    file.write(f"Total Months: {number_lines}\n")
+    file.write(f"Total Profit: ${total_profit}\n")
+    file.write(f"Average Change: ${average_difference:.2f}\n")
+    file.write(f"Max Increase in Profits: ${max_difference} on {max_date}\n")
+    file.write(f"Max Decrease in Profits: ${min_difference} on {min_date}\n")
